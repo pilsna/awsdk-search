@@ -1,3 +1,4 @@
 {
-	"searchHint":"Søg adresse"
+  "widgetName": "AwsSearch",
+  "searchHint": "Søg adresse"
 }

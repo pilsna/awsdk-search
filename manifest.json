@@ -1,12 +1,15 @@
 {
-    "name": "AwsSearch",
-    "platform": "HTML",
-    "version": "0.0.1",
-    "author": "Nils Rydh",
-    "description": "Danish adress search using data from aws.dk",
-    "copyright": "",
-    "license": "http://www.apache.org/licenses/LICENSE-2.0",
-    "properties": {
-        "inPanel": false
-    }
+  "name": "AwsSearch",
+  "label": "AWS Søgning",
+  "2D": true,
+  "3D": false,
+  "platform": "HTML",
+  "version": "0.0.1",
+  "author": "Nils Rydh",
+  "description": "Danish adress search using data from aws.dk",
+  "copyright": "",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "properties": {
+    "inPanel": false
+  }
 }

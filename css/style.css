@@ -1,3 +1,9 @@
+.awssearch-aws-search h3 {
+  font-size: 1.2em;
+}
+.awssearch-aws-search h3, p {
+  margin-top: 0;
+}
 .jimu-widget-demo div:first-child {
     color: black;
     background-color: white;
