@@ -3,7 +3,7 @@ define(['dojo/_base/declare',
         'jimu/BaseWidget',
         'jimu/loaderplugins/jquery-loader!./js/jquery.min',
         'jimu/loaderplugins/order-loader!./js/typeahead.bundle.min',
-        './widgets/samplewidgets/AwsSearch/js/aws-search.js'
+        './widgets/AwsSearch/js/aws-search.js'
     ],
     function(declare, Extent, BaseWidget, jQuery, typeahead, search) {
         //To create a widget, you need to derive from BaseWidget.
@@ -13,7 +13,7 @@ define(['dojo/_base/declare',
             //please note that this property is be set by the framework when widget is loaded.
             //templateString: template,
 
-            baseClass: 'jimu-widget-demo',
+            baseClass: 'jimu-widget-awssearch',
 
             name: 'AwsSearch',
 
