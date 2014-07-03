@@ -1,11 +1,10 @@
 define(['dojo/_base/declare',
         "esri/geometry/Extent",
         'jimu/BaseWidget',
-        'jimu/loaderplugins/jquery-loader!./js/jquery.min',
-        'jimu/loaderplugins/order-loader!./js/typeahead.bundle.min',
+        './js/jquery.min',
         './widgets/AwsSearch/js/aws-search.js'
     ],
-    function(declare, Extent, BaseWidget, jQuery, typeahead, search) {
+    function(declare, Extent, BaseWidget, jQuery, search) {
         //To create a widget, you need to derive from BaseWidget.
         return declare([BaseWidget], {
             // DemoWidget code goes here 
@@ -24,6 +23,7 @@ define(['dojo/_base/declare',
             },
 
             startup: function() {
+
                 this.inherited(arguments);
                 //this.mapIdNode.innerHTML = 'map id:' + this.map.id;
                 var map = this.map;
@@ -35,7 +35,10 @@ define(['dojo/_base/declare',
                 var zoomTo = function(point) {
                     map.centerAndZoom(point, 17);
                 }
-                var s = search.create('.typeahead', setExtent, zoomTo); //setExtent, zoomTo);
+                console.log('loading the search plugin....');
+                $(document).ready(function(){
+                    var s = search.create('.typeahead', setExtent, zoomTo); //setExtent, zoomTo);
+                });
                 console.log('startup');
             },
 

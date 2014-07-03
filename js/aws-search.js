@@ -1,11 +1,13 @@
 define([
     "dojo/_base/lang",
-    "dojo/json"
+    "dojo/json",
+    './jquery.min',
+    './typeahead.bundle.min'
 ], function(
     lang,
     JSON
 ) {
-
+    console.log('loading aws-search');
     var search = {
         create: function(elementSelector, callback, zoomTo) {
             this.setExtent = callback;
@@ -37,7 +39,7 @@ define([
                 }
             });
             addresses.initialize();
-
+            console.log('created bloodhound...');
             $(elementSelector).typeahead(null, {
                 name: 'text',
                 displayKey: 'text',
@@ -45,6 +47,7 @@ define([
             }).on('typeahead:selected', {
                 context: this
             }, this.selected);
+            console.log('created typeahead input...');
         },
         setExtent: null,
         zoomTo: null,
