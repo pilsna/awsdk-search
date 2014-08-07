@@ -5,10 +5,8 @@ define(['dojo/_base/declare',
         './widgets/AwsSearch/js/aws-search.js'
     ],
     function(declare, Extent, BaseWidget, jQuery, search) {
-        //To create a widget, you need to derive from BaseWidget.
-        return declare([BaseWidget], {
-            // DemoWidget code goes here 
 
+        return declare([BaseWidget], {
             //please note that this property is be set by the framework when widget is loaded.
             //templateString: template,
 
@@ -19,13 +17,12 @@ define(['dojo/_base/declare',
             postCreate: function() {
                 this.inherited(arguments);
                 console.log('postCreate');
-                console.log($('#map'));
             },
 
             startup: function() {
 
                 this.inherited(arguments);
-                //this.mapIdNode.innerHTML = 'map id:' + this.map.id;
+
                 var map = this.map;
                 var setExtent = function(object) {
                     var extent = new Extent(object);
@@ -37,7 +34,7 @@ define(['dojo/_base/declare',
                 }
                 console.log('loading the search plugin....');
                 $(document).ready(function(){
-                    var s = search.create('.typeahead', setExtent, zoomTo); //setExtent, zoomTo);
+                    var s = search.create('.typeahead', setExtent, zoomTo); 
                 });
                 console.log('startup');
             },
