@@ -1,8 +1,8 @@
 define(['dojo/_base/declare',
-        "esri/geometry/Extent",
+        'esri/geometry/Extent',
         'jimu/BaseWidget',
         './js/jquery.min',
-        './widgets/AwsSearch/js/aws-search.js'
+        './widgets/awsdk-search/js/aws-search.js'
     ],
     function(declare, Extent, BaseWidget, jQuery, search) {
 
@@ -12,7 +12,7 @@ define(['dojo/_base/declare',
 
             baseClass: 'jimu-widget-awssearch',
 
-            name: 'AwsSearch',
+            name: 'awsdk-search',
 
             postCreate: function() {
                 this.inherited(arguments);
@@ -33,8 +33,8 @@ define(['dojo/_base/declare',
                     map.centerAndZoom(point, 17);
                 }
                 console.log('loading the search plugin....');
-                $(document).ready(function(){
-                    var s = search.create('.typeahead', setExtent, zoomTo); 
+                $(document).ready(function() {
+                    var s = search.create('.typeahead', setExtent, zoomTo);
                 });
                 console.log('startup');
             },

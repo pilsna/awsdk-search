@@ -6,17 +6,6 @@ define([
     JSON
 ) {
     console.log('loading aws-search');
-    yepnope({
-        load: ["https://twitter.github.io/typeahead.js/js/jquery-1.10.2.min.js", "https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"],
-        callback: {
-            "jquery-1.10.2.min.js": function() {
-                console.log("loaded jquery#####!!!!!!")
-            },
-            "typeahead.bundle.js": function() {
-                console.log("loaded typeahead!!!!!!")
-            }
-        }
-    });
     var search = {
         create: function(elementSelector, callback, zoomTo) {
             this.setExtent = callback;
