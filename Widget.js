@@ -1,10 +1,10 @@
-define(['dojo/_base/declare',
-        'esri/geometry/Extent',
-        'jimu/BaseWidget',
-        './js/jquery.min',
-        './widgets/awsdk-search/js/aws-search.js'
+define([
+    'dojo/_base/declare',
+    'esri/geometry/Extent',
+    'jimu/BaseWidget',
+    './js/aws-search'
     ],
-    function(declare, Extent, BaseWidget, jQuery, search) {
+    function(declare, Extent, BaseWidget, Search) {
 
         return declare([BaseWidget], {
             //please note that this property is be set by the framework when widget is loaded.
@@ -33,9 +33,8 @@ define(['dojo/_base/declare',
                     map.centerAndZoom(point, 17);
                 }
                 console.log('loading the search plugin....');
-                $(document).ready(function() {
-                    var s = search.create('.typeahead', setExtent, zoomTo);
-                });
+                var s = new Search();
+                s.create('.typeahead', setExtent, zoomTo);
                 console.log('startup');
             },
 

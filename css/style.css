@@ -14,7 +14,9 @@
 .aws-search {
  	margin-left: 0px;
 }
-
+.typeahead {
+  width: 240px;
+}
 
 
 /*
@@ -169,7 +171,7 @@ fieldset[disabled] .twitter-typeahead .tt-input {
   top: 100%;
   left: 0;
   z-index: 2000;
-  min-width: 160px;
+  min-width: 200px;
   /* width: 100%; */
   padding: 5px 0;
   margin: 2px 0 0;
