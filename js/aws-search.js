@@ -13,9 +13,8 @@ define([
 ) {
     console.log('loading aws-search');
     return declare(null, {
-        create: function(elementSelector, callback, zoomTo) {
+        create: function(elementSelector, zoomTo, map) {
             $(function() {
-                this.setExtent = callback;
                 this.zoomTo = zoomTo;
                 var addresses = new Bloodhound({
                     name: 'ago-geocode',
@@ -70,15 +69,18 @@ define([
                         p.text = datum.text + '<br>' + datum.kommunenavn;
                         $e.data.context.zoomTo(p);
                     }
+                }).on('typeahead:opened', {
+                    context: this
+                }, function($e, datum) {
+                    map.disableKeyboardNavigation();
+                }).on('typeahead:closed', {
+                    context: this
+                }, function($e, datum) {
+                     map.enableKeyboardNavigation();
                 });
                 console.log('created typeahead input...');
             });
         },
-        setExtent: null,
-        zoomTo: null,
-        parseResponse: function(data) {
-            var result = JSON.parse(data);
-            this.setExtent(result.locations[0].extent);
-        }
+        zoomTo: null
     });
 });

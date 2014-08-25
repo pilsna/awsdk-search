@@ -2,18 +2,9 @@ define([
         'dojo/_base/declare',
         'esri/geometry/Extent',
         'jimu/BaseWidget',
-        './js/aws-search',
-        'esri/geometry/Point',
-        'esri/layers/GraphicsLayer',
-        'esri/graphic',
-        'dojo/dom-construct',
-        'esri/InfoTemplate',
-        'esri/dijit/Popup',
-        'esri/symbols/SimpleFillSymbol',
-        'esri/symbols/SimpleLineSymbol',
-        'esri/Color'
+        './js/aws-search'
     ],
-    function(declare, Extent, BaseWidget, Search, Point, GraphicsLayer, Graphic, domConstruct, InfoTemplate, Popup, SimpleFillSymbol, SimpleLineSymbol, Color) {
+    function(declare, Extent, BaseWidget, Search) {
 
         return declare([BaseWidget], {
             //please note that this property is be set by the framework when widget is loaded.
@@ -33,11 +24,7 @@ define([
                 this.inherited(arguments);
 
                 var map = this.map;
-                var setExtent = function(object) {
-                    var extent = new Extent(object);
-                    map.setExtent(extent, true);
-                    console.log('zoomlevel: ' + map.getZoom());
-                }
+
                 var popupTitle = this.config.popupTitle;
                 var zoomTo = function(point) {
                     map.infoWindow.setContent(point.text);
@@ -47,7 +34,7 @@ define([
                 }
                 console.log('loading the search plugin....');
                 var s = new Search();
-                s.create('.typeahead', setExtent, zoomTo);
+                s.create('.typeahead', zoomTo, map);
                 console.log('startup');
             },
 
