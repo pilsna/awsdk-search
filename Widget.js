@@ -25,12 +25,12 @@ define([
 
                 var map = this.map;
 
-                var popupTitle = this.config.popupTitle;
+                var config = this.config;
                 var zoomTo = function(point) {
                     map.infoWindow.setContent(point.text);
-                    map.infoWindow.setTitle(popupTitle);
+                    map.infoWindow.setTitle(config.popupTitle);
                     map.infoWindow.show(point);
-                    map.centerAndZoom(point, 17);
+                    map.centerAndZoom(point, config.zoomLevel);
                 }
                 var s = new Search();
                 s.create('.typeahead', zoomTo, map);

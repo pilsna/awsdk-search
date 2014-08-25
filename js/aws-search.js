@@ -15,6 +15,7 @@ define([
     return declare(null, {
         create: function(elementSelector, zoomTo, map) {
             $(function() {
+
                 var addresses = new Bloodhound({
                     name: 'ago-geocode',
                     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
@@ -26,7 +27,9 @@ define([
                         filter: function(response) {
                             return $.map(response, function(location) {
                                 return {
-                                    text: (location.husnr) ? location.vejnavn.navn + ' ' + location.husnr + ', ' + location.postnummer.nr : location.vejnavn.navn + ', ' + location.postnummer.nr,
+                                    text: (location.husnr) ? 
+                                        location.vejnavn.navn + ' ' + location.husnr + ' (' + location.postnummer.nr + ')' : 
+                                        location.vejnavn.navn + ' (' + location.postnummer.nr + ' ' + location.postnummer.navn + ')',
                                     magicKey: location.vejnavn.kode,
                                     kommunenavn: location.kommune.navn,
                                     url: location.vejnavn.href,
@@ -58,9 +61,13 @@ define([
                             dataType: "jsonp"
                         });
                         request.done(function(data) {
-                            var p = new Point([data.wgs84koordinat['længde'], data.wgs84koordinat['bredde']]);
-                            p.text = datum.text + '<br>' + datum.kommunenavn;
-                            zoomTo(p);
+                            if (typeof(data.wgs84koordinat['længde']) == 'undefined') {
+                                console.log(data);
+                            } else {
+                                var p = new Point([data.wgs84koordinat['længde'], data.wgs84koordinat['bredde']]);
+                                p.text = datum.text + '<br>' + datum.kommunenavn;
+                                zoomTo(p);
+                            }
                         });
                     } else {
                         var p = new Point([datum.lng, datum.lat]);

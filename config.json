@@ -1,5 +1,6 @@
 {
   "widgetName": "awsdk-search",
   "searchHint": "Søg adresse",
-  "popupTitle": "AWS Søgning"
+  "popupTitle": "AWS Søgning",
+  "zoomLevel": 17
 }
