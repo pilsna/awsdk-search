@@ -48,7 +48,9 @@ define([
                     name: 'text',
                     displayKey: 'text',
                     source: addresses.ttAdapter()
-                }).on('typeahead:selected', { context: this }, function($e, datum) {
+                }).on('typeahead:selected', {
+                    context: this
+                }, function($e, datum) {
                     if (datum.lng === '0.0' || datum.lat === '0.0') {
                         var request = $.ajax(datum.url, {
                             context: $e.data.context,
