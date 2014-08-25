@@ -2,12 +2,14 @@ define([
     "dojo/_base/declare",
     "dojo/_base/array",
     "dojo/_base/lang",
-    "dojo/json"
+    "dojo/json",
+    'esri/geometry/Point'
 ], function(
     declare,
     array,
     lang,
-    JSON
+    JSON,
+    Point
 ) {
     console.log('loading aws-search');
     return declare(null, {
@@ -28,6 +30,7 @@ define([
                                 return {
                                     text: (location.husnr) ? location.vejnavn.navn + ' ' + location.husnr + ', ' + location.postnummer.nr : location.vejnavn.navn + ', ' + location.postnummer.nr,
                                     magicKey: location.vejnavn.kode,
+                                    kommunenavn: location.kommune.navn,
                                     url: location.vejnavn.href,
                                     lng: location.wgs84koordinat['længde'],
                                     lat: location.wgs84koordinat['bredde']
@@ -58,10 +61,14 @@ define([
                             dataType: "jsonp"
                         });
                         request.done(function(data) {
-                            $e.data.context.zoomTo([data.wgs84koordinat['længde'], data.wgs84koordinat['bredde']]);
+                            var p = new Point([data.wgs84koordinat['længde'], data.wgs84koordinat['bredde']]);
+                            p.text = datum.text + '<br>' + datum.kommunenavn;
+                            $e.data.context.zoomTo(p);
                         });
                     } else {
-                        $e.data.context.zoomTo([datum.lng, datum.lat]);
+                        var p = new Point([datum.lng, datum.lat]);
+                        p.text = datum.text + '<br>' + datum.kommunenavn;
+                        $e.data.context.zoomTo(p);
                     }
                 });
                 console.log('created typeahead input...');

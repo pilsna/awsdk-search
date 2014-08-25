@@ -1,4 +1,5 @@
 {
   "widgetName": "awsdk-search",
-  "searchHint": "Søg adresse"
+  "searchHint": "Søg adresse",
+  "popupTitle": "AWS Søgning"
 }
