@@ -32,10 +32,8 @@ define([
                     map.infoWindow.show(point);
                     map.centerAndZoom(point, 17);
                 }
-                console.log('loading the search plugin....');
                 var s = new Search();
                 s.create('.typeahead', zoomTo, map);
-                console.log('startup');
             },
 
             onOpen: function() {

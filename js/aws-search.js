@@ -15,12 +15,11 @@ define([
     return declare(null, {
         create: function(elementSelector, zoomTo, map) {
             $(function() {
-                this.zoomTo = zoomTo;
                 var addresses = new Bloodhound({
                     name: 'ago-geocode',
                     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
                     queryTokenizer: Bloodhound.tokenizers.whitespace,
-                    limit: 15,
+                    limit: 20,
                     remote: {
                         url: 'http://webapi.aws.dk/adresser.json?q=%QUERY&maxantal=20',
                         rateLimitWait: 300,
@@ -40,7 +39,6 @@ define([
                             type: "GET",
                             dataType: "jsonp"
                         }
-
                     }
                 });
                 addresses.initialize();
@@ -62,25 +60,20 @@ define([
                         request.done(function(data) {
                             var p = new Point([data.wgs84koordinat['længde'], data.wgs84koordinat['bredde']]);
                             p.text = datum.text + '<br>' + datum.kommunenavn;
-                            $e.data.context.zoomTo(p);
+                            zoomTo(p);
                         });
                     } else {
                         var p = new Point([datum.lng, datum.lat]);
                         p.text = datum.text + '<br>' + datum.kommunenavn;
-                        $e.data.context.zoomTo(p);
+                        zoomTo(p);
                     }
-                }).on('typeahead:opened', {
-                    context: this
-                }, function($e, datum) {
+                }).on('typeahead:opened', function($e, datum) {
                     map.disableKeyboardNavigation();
-                }).on('typeahead:closed', {
-                    context: this
-                }, function($e, datum) {
-                     map.enableKeyboardNavigation();
+                }).on('typeahead:closed', function($e, datum) {
+                    map.enableKeyboardNavigation();
                 });
                 console.log('created typeahead input...');
             });
-        },
-        zoomTo: null
+        }
     });
 });
