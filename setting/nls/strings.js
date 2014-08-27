@@ -1,6 +1,7 @@
 define({
   root: {
     searchHint: "Tekst i søgefelt",
+    popupTitle: "Popup overskrift",
     zoomLevel: "Zoom niveau",
     warning: "Input er ikke korrekt"
   },

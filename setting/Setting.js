@@ -45,12 +45,6 @@ define([
                 if (config.zoomLevel) {
                     this.zoomLevel.set('value', config.zoomLevel);
                 }
-                /*
-                if (config.locateButton.highlightLocation || config.locateButton.highlightLocation === undefined) {
-                    this.highlightLocation.set('checked', true);
-                } else {
-                    this.highlightLocation.set('checked', false);
-                }*/
             },
 
             getConfig: function() {
@@ -61,7 +55,6 @@ define([
                 this.config.zoomLevel = parseInt(this.zoomLevel.value);
                 this.config.searchHint = this.searchHint.value;
                 this.config.popupTitle = this.popupTitle.value;
-                console.log(this.config);
                 return this.config;
             }
 

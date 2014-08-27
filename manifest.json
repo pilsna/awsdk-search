@@ -1,10 +1,10 @@
 {
   "name": "awsdk-search",
-  "label": "AWS Søgning",
+  "label": "aws.dk søgning",
   "2D": true,
   "3D": false,
   "platform": "HTML",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Nils Rydh",
   "description": "Danish adress search using data from aws.dk",
   "copyright": "",
