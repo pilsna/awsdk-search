@@ -23,7 +23,8 @@ The documentation of the service is located at [aws.dk](http://www.aws.dk).
 2. Add jquery and typeahead files to the libs folder and update stemapp/init.js
 3. Update builder/predefined-apps/default2DApp/config.json
     Find this snippet: 
-```    {
+```    
+    {
         "uri": "widgets/Geocoder/Widget",
         "position": {
             "left": 45,
@@ -32,7 +33,8 @@ The documentation of the service is located at [aws.dk](http://www.aws.dk).
     }
 ```
     And add this after it: 
-```    {
+```    
+    {
         "uri": "widgets/awsdk-search/Widget",
         "position": {
             "left": 45,
