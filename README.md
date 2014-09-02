@@ -32,7 +32,9 @@ The documentation of the service is located at [aws.dk](http://www.aws.dk).
         }
     }
 ```
-    And add this after it: 
+
+Add this snippet right after the Geocoder:
+
 ```    
     {
         "uri": "widgets/awsdk-search/Widget",
