@@ -3,9 +3,9 @@
 A search component for Danish address data to be used with Esri Web App Builder. It has been tested with beta 2 in random browsers.
 
 ## About the service
-It is implemented as a dojo widget that calls webservices from the Ministry of Housing, Urban and Rural Affairs in Denmark. 
+It is implemented as a dojo widget that calls webservices from the Ministry of Housing, Urban and Rural Affairs in Denmark [(MBBL)](http://mbbl.dk/). 
 
-The documentation of the service is located at [aws.dk](www.aws.dk).
+The documentation of the service is located at [aws.dk](http://www.aws.dk).
 
 ## Installation
 
