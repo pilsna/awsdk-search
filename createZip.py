@@ -13,18 +13,23 @@ def copyFiles():
 		copy(file, os.path.join(destination, file))
 
 def zipdir(path, zip):
+	print "creating zip, adding all these files:"
 	for root, dirs, files in os.walk(path):
 		if '.DS_Store' in files:
 			files.remove('.DS_Store')
 		for file in files:
-			print file
-			zip.write(os.path.join(root, file))
+			absfn = os.path.join(root, file)
+			zfn = absfn[len(path)+len(os.sep):]
+
+			print '   ==> ' + zfn
+			zip.write(absfn, zfn)
+	print "done."
 
 if __name__ == '__main__':
 
 	copyFiles()
 	zipf = zipfile.ZipFile('awsdk-install.zip', 'w')
-	zipdir('dist/client', zipf)
+	zipdir('./dist', zipf)
 	zipf.close()
 	if os.path.exists(destination):
 		rmtree(destination)
