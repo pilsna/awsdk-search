@@ -10,12 +10,13 @@ The documentation of the service is located at [aws.dk](http://www.aws.dk).
 ## Installation
 
 ### Semi-automatic installation
-1. Open a command prompt in the awsdk-search folder
-2. Run the createZip.py script by writing
-```python createZip.py```
-3. The file awsdk-install.zip is created. This file can be used to install the search component in the Web App Builder.
-4. Extract the zip in the root folder of the Web App Builder installation.
-5. Start the Web App Builder.
+1. Download the zip file on this page and unpack it.
+2. Open a command prompt and navigate to the awsdk-search-master folder
+3. Run the createZip.py script by writing
+```python createZip.py``` or ```C:\python27\ArcGIS10.2\python.exe createZip.py``` or something similar.
+4. The file awsdk-install.zip is created. This file can be used to install the search component in the Web App Builder.
+5. Extract the awsdk-install.zip in the root folder of the Web App Builder installation.
+6. Start the Web App Builder.
 
 
 ### Manual installation
